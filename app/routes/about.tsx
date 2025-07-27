@@ -8,7 +8,7 @@ export function meta({}: Route.MetaArgs) {
     {
       property: "og:image",
       content:
-        "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80", // hình ảnh test
+        "https://media.istockphoto.com/id/2197198226/photo/wadi-rum.webp?a=1&s=612x612&w=0&k=20&c=U1x_4WBTpbM-dpv1nDnAFqOVqZwqyo4sfO_7rkcrLII=", // hình ảnh khác
     },
   ];
 }
