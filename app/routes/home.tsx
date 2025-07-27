@@ -1,17 +1,18 @@
-import type { Route } from "./+types/home";
+import type { Route } from "../+types/root";
 import { Welcome } from "../welcome/welcome";
 
 export function meta({}: Route.MetaArgs) {
   return [
-    { title: "New React Router App" },
-    { name: "description", content: "Welcome to React Router!" },
+    { title: "Trang chủ | App Việt" },
+    { name: "description", content: "Trang chủ của App Việt" },
+    {
+      property: "og:image",
+      content:
+        "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80", // hình ảnh test
+    },
   ];
 }
 
-export function loader({ context }: Route.LoaderArgs) {
-  return { message: context.cloudflare.env.VALUE_FROM_CLOUDFLARE };
-}
-
-export default function Home({ loaderData }: Route.ComponentProps) {
-  return <Welcome message={loaderData.message} />;
+export default function Home() {
+  return <Welcome />;
 }
