@@ -35,7 +35,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        <div className="flex flex-col mx-auto max-w-4xl w-full">{children}</div>
+        {children}
         <ScrollRestoration />
         <Scripts />
       </body>
