@@ -1,3 +1,4 @@
+import About from "~/about/about";
 import type { Route } from "./+types/about";
 
 export function meta({}: Route.MetaArgs) {
@@ -12,8 +13,8 @@ export function meta({}: Route.MetaArgs) {
   ];
 }
 
-const About = () => {
-  return <div>About</div>;
+const AboutRoute = () => {
+  return <About />;
 };
 
-export default About;
+export default AboutRoute;
