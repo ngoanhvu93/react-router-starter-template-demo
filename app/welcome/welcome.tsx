@@ -6,7 +6,8 @@ export function Welcome() {
   return (
     <div className="flex-1 flex flex-col items-center gap-16 min-h-0">
       <Button variant="contained" onClick={() => navigate("/about")}>
-        Test React + Vite + MUI Material Design + Cloudflare Deploy
+        Test React Router V7 + Vite + SSR + MUI Material Design + Cloudflare
+        Deploy
       </Button>
     </div>
   );
