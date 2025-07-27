@@ -1,8 +1,8 @@
 {
-  "name": "react-router-starter-template-demo",
-  "description": "Build a full-stack web application with React Router 7.",
+  "name": "react-app-vn",
+  "description": "React App VN",
   "cloudflare": {
-    "label": "React Router Framework Starter",
+    "label": "React App VN",
     "products": [
       "Workers"
     ],
