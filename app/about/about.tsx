@@ -1,4 +1,4 @@
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import {
   AppBar,
   Toolbar,
@@ -38,16 +38,14 @@ import {
   SportsSoccer,
   Work,
   Games,
-  Menu,
   Close,
   ArrowUpward,
 } from "@mui/icons-material";
 import { useState, useEffect } from "react";
+import { TopAppBar } from "~/components/TopAppBar";
 
 export default function About() {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("md"));
-  const isSmallMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const navigate = useNavigate();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
 
@@ -112,101 +110,13 @@ export default function About() {
   ];
 
   return (
-    <Box sx={{ minHeight: "100vh", bgcolor: "background.default" }}>
-      {/* Header */}
-      <AppBar position="sticky" elevation={0}>
-        <Toolbar sx={{ minHeight: { xs: 64, md: 72 } }}>
-          <Container maxWidth="xl">
-            <Box
-              display="flex"
-              justifyContent="space-between"
-              alignItems="center"
-            >
-              <Box display="flex" alignItems="center" gap={{ xs: 1, md: 2 }}>
-                <Box
-                  sx={{
-                    width: { xs: 36, md: 40 },
-                    height: { xs: 36, md: 40 },
-                    borderRadius: { xs: 1.5, md: 2 },
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  <Typography
-                    variant={isMobile ? "body1" : "h6"}
-                    color="white"
-                    fontWeight="bold"
-                  >
-                    VN
-                  </Typography>
-                </Box>
-                <Typography
-                  variant={isMobile ? "h6" : "h5"}
-                  fontWeight="bold"
-                  color="text.primary"
-                  sx={{ display: { xs: "none", sm: "block" } }}
-                >
-                  App Store Việt Nam
-                </Typography>
-                <Typography
-                  variant="h6"
-                  fontWeight="bold"
-                  color="text.primary"
-                  sx={{ display: { xs: "block", sm: "none" } }}
-                >
-                  App Store VN
-                </Typography>
-              </Box>
-
-              {/* Desktop Navigation */}
-              <Box sx={{ display: { xs: "none", md: "flex" }, gap: 3 }}>
-                {navigationItems.map((item) => (
-                  <Button
-                    key={item.label}
-                    component={Link}
-                    to={item.to}
-                    color={item.to === "/about" ? "primary" : "inherit"}
-                    sx={{
-                      textTransform: "none",
-                      fontWeight: item.to === "/about" ? "medium" : "normal",
-                      px: 2,
-                      py: 1,
-                      borderRadius: 2,
-                      "&:hover": {
-                        bgcolor: "rgba(25, 118, 210, 0.08)",
-                      },
-                    }}
-                  >
-                    {item.label}
-                  </Button>
-                ))}
-              </Box>
-
-              {/* Mobile Menu Button */}
-              <IconButton
-                sx={{ display: { xs: "flex", md: "none" } }}
-                onClick={() => setMobileMenuOpen(true)}
-                color="primary"
-              >
-                <Menu />
-              </IconButton>
-            </Box>
-          </Container>
-        </Toolbar>
-      </AppBar>
-
+    <Box>
+      <TopAppBar onBack={() => navigate("/")} title="Giới thiệu" />
       {/* Mobile Navigation Drawer */}
       <Drawer
         anchor="right"
         open={mobileMenuOpen}
         onClose={() => setMobileMenuOpen(false)}
-        PaperProps={{
-          sx: {
-            width: 280,
-            bgcolor: "background.paper",
-          },
-        }}
       >
         <Box
           sx={{

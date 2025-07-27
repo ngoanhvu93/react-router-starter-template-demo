@@ -10,6 +10,7 @@ import {
 import type { Route } from "./+types/root";
 import "./app.css";
 import { createTheme, CssBaseline, ThemeProvider } from "@mui/material";
+import { TopAppBar } from "./components/TopAppBar";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -25,12 +26,6 @@ export const links: Route.LinksFunction = () => [
 ];
 
 export function Layout({ children }: { children: React.ReactNode }) {
-  const theme = createTheme({
-    palette: {
-      mode: "dark",
-    },
-  });
-
   return (
     <html lang="en">
       <head>
@@ -40,10 +35,7 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        <ThemeProvider theme={theme}>
-          <CssBaseline />
-          {children}
-        </ThemeProvider>
+        <div className="flex flex-col mx-auto max-w-4xl w-full">{children}</div>
         <ScrollRestoration />
         <Scripts />
       </body>
@@ -52,7 +44,17 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  return <Outlet />;
+  const theme = createTheme({
+    palette: {
+      mode: "dark",
+    },
+  });
+  return (
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Outlet />
+    </ThemeProvider>
+  );
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
