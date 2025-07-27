@@ -9,10 +9,11 @@ const Test = () => {
   };
 
   return (
-    <div className="flex flex-col gap-4 overflow-hidden w-full h-screen">
-      <div className="flex-none sticky top-0 z-10">TOP APP BAR</div>
-      <div className="flex-1 grow overflow-y-auto">
-        <h1 className="text-2xl h-full font-bold">Test</h1>
+    <div className="flex flex-col mx-auto max-w-4xl w-full">
+      <div className="flex-none sticky top-0 z-10 w-full">
+        <TopAppBar title="Test" />
+      </div>
+      <div className="h-full">
         <div className="w-20 h-[1000px] bg-red-500" />
         <button onClick={scrollToTop}>Scroll to top</button>
       </div>
