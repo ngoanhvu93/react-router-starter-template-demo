@@ -14,7 +14,7 @@ const Test = () => {
         <TopAppBar title="Test" />
       </div>
       <div className="h-full">
-        <div className="w-20 h-[1000px] bg-red-500" />
+        <div className="w-20 h-[100px] bg-red-500" />
         <button onClick={scrollToTop}>Scroll to top</button>
       </div>
       <div className="flex-none sticky bottom-0 z-10">BOTTOM APP BAR</div>
