@@ -27,10 +27,7 @@ export const links: Route.LinksFunction = () => [
 export function Layout({ children }: { children: React.ReactNode }) {
   const theme = createTheme({
     palette: {
-      mode: "light",
-    },
-    typography: {
-      fontFamily: "Roboto, sans-serif",
+      mode: "dark",
     },
   });
 
