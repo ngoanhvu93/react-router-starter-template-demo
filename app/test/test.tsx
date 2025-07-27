@@ -1,4 +1,10 @@
+import IconButton from "@mui/material/IconButton";
+import ArrowUpwardIcon from "@mui/icons-material/ArrowUpward";
+import { BottomAppBar } from "~/components/BottomAppBar";
 import { TopAppBar } from "~/components/TopAppBar";
+import ListItem from "@mui/material/ListItem";
+import List from "@mui/material/List";
+import ListItemText from "@mui/material/ListItemText";
 
 const Test = () => {
   const scrollToTop = () => {
@@ -9,16 +15,27 @@ const Test = () => {
   };
 
   return (
-    <div className="flex flex-col mx-auto max-w-4xl w-full">
-      <div className="flex-none sticky top-0 z-10 w-full">
-        <TopAppBar title="Test" />
-      </div>
-      <div className="h-full">
-        <div className="w-20 h-[100px] bg-red-500" />
-        <button onClick={scrollToTop}>Scroll to top</button>
-      </div>
-      <div className="flex-none sticky bottom-0 z-10">BOTTOM APP BAR</div>
-    </div>
+    <>
+      <TopAppBar title="Test" />
+      <List>
+        {Array.from({ length: 100 }).map((_, index) => (
+          <ListItem key={index}>
+            <ListItemText primary={index} />
+          </ListItem>
+        ))}
+      </List>
+      <IconButton
+        sx={{
+          position: "fixed",
+          bottom: 20,
+          right: 20,
+        }}
+        onClick={scrollToTop}
+      >
+        <ArrowUpwardIcon />
+      </IconButton>
+      <BottomAppBar />
+    </>
   );
 };
 
