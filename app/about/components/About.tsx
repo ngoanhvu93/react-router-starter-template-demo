@@ -313,14 +313,17 @@ export default function About() {
               {
                 title: "Sản phẩm",
                 links: ["Ứng dụng", "Trò chơi", "Công cụ"],
+                to: ["/", "/games", "/tools"],
               },
               {
                 title: "Hỗ trợ",
                 links: ["Trung tâm trợ giúp", "Liên hệ", "Bảo mật"],
+                to: ["/support", "/contact", "/security"],
               },
               {
                 title: "Công ty",
                 links: ["Về chúng tôi", "Tuyển dụng", "Tin tức"],
+                to: ["/about", "/jobs", "/news"],
               },
             ].map((section, index) => (
               <div className="col-span-1" key={index}>
@@ -335,6 +338,7 @@ export default function About() {
                 <Stack spacing={1}>
                   {section.links.map((link, linkIndex) => (
                     <Button
+                      onClick={() => navigate(section.to[linkIndex])}
                       key={linkIndex}
                       color="inherit"
                       sx={{
