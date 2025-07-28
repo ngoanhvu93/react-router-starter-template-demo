@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router";
+import { useNavigate } from "react-router";
 import {
   Typography,
   Button,
@@ -8,20 +8,12 @@ import {
   Card,
   CardContent,
   Stack,
-  IconButton,
-  Drawer,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemText,
-  Divider,
   Fab,
 } from "@mui/material";
 import {
   Security,
   Speed,
   People,
-  Download,
   ContactSupport,
   ShoppingCart,
   School,
@@ -31,7 +23,6 @@ import {
   SportsSoccer,
   Work,
   Games,
-  Close,
   ArrowUpward,
   Info,
   ArrowForward,
@@ -66,9 +57,9 @@ export default function About() {
     },
     {
       icon: <Speed sx={{ fontSize: { xs: 28, md: 32 } }} />,
-      title: "Tốc độ tải nhanh",
+      title: "Tốc độ nhanh",
       description:
-        "Hạ tầng server tại Việt Nam giúp tải ứng dụng với tốc độ cao nhất có thể.",
+        "Hạ tầng server hàng đầu thế giới, áp dụng công nghệ mới nhất giúp tốc độ tải nhanh nhất có thể.",
       color: "success",
     },
     {
@@ -128,7 +119,7 @@ export default function About() {
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-6 md:mb-8">
             <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-2">
-              Tại sao chọn App Store Việt Nam?
+              Tại sao chọn App Việt?
             </h2>
             <p className="text-gray-500">
               Chúng tôi cung cấp trải nghiệm tải ứng dụng tốt nhất với những
@@ -155,21 +146,17 @@ export default function About() {
       </div>
 
       {/* Stats Section */}
-      <div className="py-8 md:py-10">
-        <div className="max-w-4xl mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            {stats.map((stat, index) => (
-              <div className="col-span-1" key={index}>
-                <div className="p-4 rounded-lg shadow-md transition-all duration-300 hover:shadow-lg hover:translate-y-[-4px]">
-                  <div className={`text-2xl font-bold ${stat.color}`}>
-                    {stat.value}
-                  </div>
-                  <div>{stat.label}</div>
-                </div>
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {stats.map((stat, index) => (
+          <Card className="col-span-1" key={index}>
+            <CardContent>
+              <div className={`text-2xl font-bold ${stat.color}`}>
+                {stat.value}
               </div>
-            ))}
-          </div>
-        </div>
+              <div>{stat.label}</div>
+            </CardContent>
+          </Card>
+        ))}
       </div>
 
       {/* Categories Section */}
