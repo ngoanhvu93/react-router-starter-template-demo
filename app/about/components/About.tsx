@@ -296,7 +296,7 @@ export default function About() {
                   fontWeight="bold"
                   sx={{ fontSize: { xs: "1rem", md: "1.25rem" } }}
                 >
-                  App Store Việt Nam
+                  App Việt
                 </Typography>
               </Box>
               <Typography
