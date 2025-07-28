@@ -136,7 +136,7 @@ export default function About() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4">
             {features.map((feature, index) => (
               <div className="col-span-1" key={index}>
                 <Card elevation={2}>
