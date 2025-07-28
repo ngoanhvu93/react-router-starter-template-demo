@@ -24,7 +24,6 @@ import {
   Work,
   Games,
   ArrowUpward,
-  Info,
   ArrowForward,
 } from "@mui/icons-material";
 import { useState, useEffect } from "react";
@@ -73,8 +72,8 @@ export default function About() {
 
   const stats = [
     { value: "10M+", label: "Người dùng", color: "primary" },
-    { value: "50K+", label: "Ứng dụng", color: "success" },
-    { value: "100M+", label: "Lượt tải", color: "secondary" },
+    { value: "100M+", label: "Lượt sử dụng", color: "secondary" },
+    { value: "500+", label: "Ứng dụng", color: "info" },
     { value: "4.8★", label: "Đánh giá", color: "warning" },
   ];
 
@@ -94,7 +93,7 @@ export default function About() {
       <TopAppBar onBack={() => navigate("/")} title="Giới thiệu" />
       {/* Hero Section */}
       <div className="py-6 md:py-10 px-2 md:px-3 flex flex-col items-center justify-center w-full">
-        <div className="text-center w-full">
+        <div className="text-center w-full flex flex-col items-center justify-center gap-4">
           <h1 className="text-4xl font-bold">
             Khám phá thế giới ứng dụng Việt Nam
           </h1>
@@ -103,14 +102,14 @@ export default function About() {
             với những ứng dụng chất lượng cao, phù hợp với văn hóa và nhu cầu
             của người Việt.
           </p>
-          <div className="flex flex-col md:flex-row gap-2 mx-auto w-full mt-4">
-            <Button variant="contained" size="large">
-              Khám phá ngay
-            </Button>
-            <Button variant="outlined" size="large" startIcon={<Info />}>
-              Tìm hiểu thêm về chúng tôi
-            </Button>
-          </div>
+          <Button
+            variant="contained"
+            size="large"
+            onClick={() => navigate("/")}
+            startIcon={<ArrowForward />}
+          >
+            Khám phá ngay
+          </Button>
         </div>
       </div>
 
@@ -146,15 +145,15 @@ export default function About() {
       </div>
 
       {/* Stats Section */}
-      <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-4 p-4">
         {stats.map((stat, index) => (
           <Card className="col-span-1" key={index}>
-            <CardContent>
+            <div className="text-center p-4">
               <div className={`text-2xl font-bold ${stat.color}`}>
                 {stat.value}
               </div>
               <div>{stat.label}</div>
-            </CardContent>
+            </div>
           </Card>
         ))}
       </div>
