@@ -12,10 +12,11 @@ export function Welcome() {
     setLoading(true);
     try {
       const response = await fetch(
-        "https://jsonplaceholder.typicode.com/posts"
+        "https://jsonplaceholder.typicode.com/posts/1"
       );
       const data = await response.json();
       setApiData(data);
+      console.log("API Response:", data);
     } catch (error) {
       console.error("API Error:", error);
     } finally {
@@ -35,22 +36,7 @@ export function Welcome() {
           {loading ? "Testing API..." : "Test API Call"}
         </Button>
 
-        {apiData && (
-          <div>
-            <h3>100 Posts:</h3>
-            {Array.isArray(apiData) ? (
-              <div className="space-y-2">
-                {apiData.map((post: any, index: number) => (
-                  <div key={post.id} className="border p-2 rounded">
-                    <strong>Post {index + 1}:</strong> {post.title}
-                  </div>
-                ))}
-              </div>
-            ) : (
-              <div>{JSON.stringify(apiData, null, 2)}</div>
-            )}
-          </div>
-        )}
+        {apiData && <div>{JSON.stringify(apiData, null, 2)}</div>}
       </div>
     </>
   );
