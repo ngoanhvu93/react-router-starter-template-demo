@@ -24,6 +24,31 @@ export function Welcome() {
     }
   };
 
+  const testWeatherApi = async () => {
+    setLoading(true);
+    try {
+      // Sử dụng API miễn phí không cần key
+      const response = await fetch(
+        "https://api.open-meteo.com/v1/forecast?latitude=21.0285&longitude=105.8542&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code&timezone=Asia/Bangkok"
+      );
+
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+
+      const data = await response.json();
+      setApiData(data);
+      console.log("Weather API Response:", data);
+    } catch (error) {
+      console.error("Weather API Error:", error);
+      setApiData({
+        error: "Không thể lấy dữ liệu thời tiết. Vui lòng thử lại sau.",
+      });
+    } finally {
+      setLoading(false);
+    }
+  };
+
   return (
     <>
       <TopAppBar title="Welcome" />
@@ -35,8 +60,18 @@ export function Welcome() {
         <Button variant="outlined" onClick={testApi} disabled={loading}>
           {loading ? "Testing API..." : "Test API Call"}
         </Button>
+        <Button variant="outlined" onClick={testWeatherApi} disabled={loading}>
+          {loading ? "Đang lấy thời tiết..." : "Test API Thời Tiết"}
+        </Button>
 
-        {apiData && <div>{JSON.stringify(apiData, null, 2)}</div>}
+        {apiData && (
+          <div className="mt-4 p-4 rounded">
+            <h3 className="font-bold mb-2">API Response:</h3>
+            <pre className="text-sm overflow-auto">
+              {JSON.stringify(apiData, null, 2)}
+            </pre>
+          </div>
+        )}
       </div>
     </>
   );
